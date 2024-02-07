@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 function Hero() {
   return (
