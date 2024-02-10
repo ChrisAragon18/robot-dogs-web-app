@@ -15,7 +15,7 @@ function Navbar() {
                         <li><Link to="/about">About</Link></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Daisy and Milo</a>
+                <Link to="/home" role="button" className='btn btn-ghost text-xl'>Daisy and Milo</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-xl">
