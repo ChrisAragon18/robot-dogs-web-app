@@ -7,7 +7,7 @@ function Hero() {
         <img src="src\assets\images\logo.png" className="max-w-sm rounded-lg shadow-2xl" alt="" />
         <div>
           <h1 className="text-5xl font-bold">Daisy and Milo</h1>
-          <p className="py-6">info</p>
+          <p className="py-6">Florida Atlantic University's robotic dogs!</p>
           <Link to="/home" role="button" className="btn btn-accent text-black">START</Link>
         </div>
       </div>
