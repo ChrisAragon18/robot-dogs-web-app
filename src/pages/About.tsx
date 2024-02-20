@@ -28,7 +28,8 @@ const group17 = [
     {
         name: "Charles Fernandez-Hamoui",
         role: 'LIDAR Navigation Specialist/',
-        image: ''
+        image: '',
+        description: 'Current Senior Undergraduate.'
     }
 ]
 

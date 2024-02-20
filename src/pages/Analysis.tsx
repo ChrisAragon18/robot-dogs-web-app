@@ -2,7 +2,10 @@ import Navbar from '../components/Navbar'
 
 function Analysis() {
     return (
-        <Navbar />
+        <>
+            <Navbar />
+        </>
+        
     )
 }
 
