@@ -8,7 +8,7 @@ function Home() {
     // Function to check the connection status with the robot
     const checkConnection = async () => {
         try {
-            const ros = new ROSLIB.Ros({ url: 'ws://robot-ip-address:port' })
+            const ros = new ROSLIB.Ros({ url: 'ws://192.168.123.15:9090' })
 
             await new Promise((resolve, reject) => {
                 ros.on('connection', resolve)
