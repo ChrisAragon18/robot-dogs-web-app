@@ -5,7 +5,7 @@ function Analysis() {
         <>
             <Navbar />
         </>
-        
+
     )
 }
 
