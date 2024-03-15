@@ -7,7 +7,8 @@ export default function ROSBridgeConnection() {
     // Function to check the connection status with the robot
     const checkConnection = async () => {
         try {
-            const ros = new ROSLIB.Ros({ url: 'ws://192.168.123.15:9090' })
+            //const ros = new ROSLIB.Ros({ url: 'ws://192.168.123.15:9090' })
+            const ros = new ROSLIB.Ros({ url: 'ws://10.12.42.22:9090' })  // Daisy
 
             await new Promise((resolve, reject) => {
                 ros.on('connection', resolve)
