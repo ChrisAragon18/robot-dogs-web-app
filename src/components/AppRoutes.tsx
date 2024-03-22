@@ -5,6 +5,7 @@ import About from '../pages/About'
 import Analysis from '../pages/Analysis'
 import Control from '../pages/Control'
 import Surveillance from '../pages/Surveillance'
+import Search from '../pages/Search'
 
 function AppRoutes() {
     return (
@@ -12,6 +13,7 @@ function AppRoutes() {
             <Route path="/" element={<Hero />} />
             <Route path="/home" element={<Home />} />
             <Route path="/control" element={<Control />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/surveillance" element={<Surveillance />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/about" element={<About />} />
