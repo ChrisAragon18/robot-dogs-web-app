@@ -4,7 +4,7 @@ function Hero() {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
-        <img src="public\assets\images\logo.png" className="max-w-sm rounded-lg shadow-2xl" alt="" />
+        <img src="\public\assets\images\logo.png" className="max-w-sm rounded-lg shadow-2xl" alt="" />
         <div>
           <h1 className="text-5xl font-bold">Daisy and Milo</h1>
           <p className="py-6">Florida Atlantic University's robotic dogs!</p>

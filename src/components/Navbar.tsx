@@ -28,7 +28,7 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/home" role='button'><img src="public\assets\images\logo.png" className='w-16' /></Link>
+                <Link to="/home" role='button'><img src="\public\assets\images\logo.png" className='w-16' /></Link>
             </div>
         </div>
     )
