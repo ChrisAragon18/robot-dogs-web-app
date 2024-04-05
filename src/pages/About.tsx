@@ -4,31 +4,31 @@ const group17 = [
     {
         name: 'Francisco Guerrero',
         role: 'Collaborative Mission Control Specialist',
-        image: './src/assets/images/francisco-image.jpg',
+        image: '.../public/assets/images/francisco-image.jpg',
         description: 'Current Senior Undergraduate.'
     },
     {
         name: 'Christopher Aragon',
         role: 'Collaborative Mission Control Specialist',
-        image: './src/assets/images/christopher-aragon.png',
+        image: '.../public/assets/images/christopher-aragon.png',
         description: 'Current Senior Undergraduate.'
     },
     {
         name: "Bryan Cooke",
         role: 'LIDAR Navigation Specialist',
-        image: './src/assets/images/bryan-cooke.png',
+        image: '.../public/assets/images/bryan-cooke.png',
         description: 'Current Senior Undergraduate.'
     },
     {
         name: "Chirstopher Anastatis",
         role: 'LIDAR Navigation Specialist',
-        image: './src/assets/images/christopher-anastasis.png',
+        image: '.../public/assets/images/christopher-anastasis.png',
         description: 'Current Senior Undergraduate.'
     },
     {
         name: "Charles Fernandez-Hamoui",
         role: 'LIDAR Navigation Specialist/',
-        image: './src/assets/images/charles-fernandez-hamoui-pic.png',
+        image: '.../public/assets/images/charles-fernandez-hamoui-pic.png',
         description: 'Current Senior Undergraduate.'
     }
 ]
