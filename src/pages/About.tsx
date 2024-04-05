@@ -4,7 +4,7 @@ const group17 = [
     {
         name: 'Francisco Guerrero',
         role: 'Collaborative Mission Control Specialist',
-        image: '/assets/images/bryan-cooke.png',
+        image: '/assets/images/francisco-image.jpg',
         description: 'Current Senior Undergraduate.'
     },
     {
