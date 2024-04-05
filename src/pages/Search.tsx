@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Navbar from '../components/Navbar'
 
 function Search() {
-    const [selectedImage, setSelectedImage] = useState(null)
+    const [selectedImage, setSelectedImage] = useState<string | undefined>();
     const [isConfirmed, setIsConfirmed] = useState(false)
 
-    const handleImageUpload = (event) => {
+    const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files) return // To handle the null case
+
         setSelectedImage(URL.createObjectURL(event.target.files[0]))
         setIsConfirmed(false) // Reset the confirmation state when a new image is uploaded
     }
@@ -29,7 +31,7 @@ function Search() {
                 )}
 
                 <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" id="fileUpload" />
-                <button className="btn btn-secondary" onClick={() => document.getElementById('fileUpload').click()}>Upload Image</button>
+                <button className="btn btn-secondary" onClick={() => document.getElementById('fileUpload')?.click()}>Upload Image</button>
                 {selectedImage && (
                     <div className="mt-4">
                         <img src={selectedImage} alt="Selected" className="w-48 h-48 object-cover" />
