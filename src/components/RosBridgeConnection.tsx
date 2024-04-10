@@ -33,7 +33,7 @@ export default function ROSBridgeConnection() {
     return (
         <>
             <div>
-                {!isConnected && <p>Please connect to the robot's hotspot.</p>}
+                {!isConnected && <p>Please connect to FAU Wi-Fi and turn the robot dog(s) on. (This message will dissappear once connected to the robot dog(s))</p>}
             </div>
         </>
     )
