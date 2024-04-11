@@ -2,22 +2,26 @@ import { useState } from 'react'
 import Navbar from '../components/Navbar'
 
 function Search() {
-    const [selectedImage, setSelectedImage] = useState<string | undefined>();
+    const [selectedImage, setSelectedImage] = useState<string | undefined>()
     const [isConfirmed, setIsConfirmed] = useState(false)
+    const [selectedFile, setSelectedFile] = useState<File | undefined>()
 
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (!event.target.files) return // To handle the null case
 
+        setSelectedFile(event.target.files[0])
         setSelectedImage(URL.createObjectURL(event.target.files[0]))
         setIsConfirmed(false) // Reset the confirmation state when a new image is uploaded
     }
 
     const handleConfirm = () => {
         // Create a FormData object
-        let formData = new FormData();
+        let formData = new FormData()
 
         // Append the selected image file to the FormData object
-        formData.append('image', selectedImage);
+        if (selectedFile) {
+            formData.append('image', selectedFile)
+        }
 
         // Send a POST request to the server with the image file
         fetch('http://10.12.42.22:3000/image', {
@@ -26,19 +30,19 @@ function Search() {
         })
             .then(response => response.json())
             .then(data => console.log(data))
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error:', error))
 
-        setIsConfirmed(true); // Set the confirmation state to true when the image is confirmed
+        setIsConfirmed(true) // Set the confirmation state to true when the image is confirmed
     }
 
 
     const handleSearch = () => {
         console.log('Start search')
 
-        fetch('http://10.12.42.22:3000/start_vision')
+        fetch('http://10.12.42.22:3000/start_search')
             .then(response => response.text())
             .then(data => console.log(data))
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error:', error))
     }
 
 
