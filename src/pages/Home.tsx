@@ -24,7 +24,7 @@ function Home() {
                     <div className="card w-96 bg-secondary shadow-xl">
                         <div className="card-body">
                             <h2 className="card-title text-black">Meet Milo!</h2>
-                            <figure><img src="" alt="Milo" /></figure>
+                            <figure><img src="/assets/images/milo.jpg" alt="Milo" /></figure>
 
                         </div>
                     </div>
