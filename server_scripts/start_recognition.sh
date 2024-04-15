@@ -1,0 +1,1 @@
+export OPENBLAS_CORETYPE=ARMV8 && python3 ~/Desktop/objectDetection/content/yolov7/detect.py --weights yolov7-tiny.pt --conf 0.6 --save-txt --save-conf --img-size 640 --source https:192.168.123.5000
