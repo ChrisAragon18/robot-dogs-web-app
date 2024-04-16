@@ -7,7 +7,7 @@ cd /home/unitree/Unitree/sdk/UnitreecameraSDK-main && sh start_capture.sh &
 cd /home/unitree/Unitree/sdk/UnitreecameraSDK-main && python3 stream.py &
 
 #head nano for encode_faces.py--------------------------------------------
-cd /home/unitree/Unitree/sdk/UnitreecameraSDK-main && python3 encode_faces.py &
+#cd /home/unitree/Unitree/sdk/UnitreecameraSDK-main && python3 encode_faces.py &
 
 sleep 5
 

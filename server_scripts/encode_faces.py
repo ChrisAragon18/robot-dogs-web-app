@@ -38,8 +38,8 @@ def encode_known_faces(
 
     print(model)
     show_output = False
-    for filepath in Path("new_appointment_faces/"+path).glob("*"):
-        print("Training "+str(filepath))
+    for filepath in Path("new_appointment_faces/" + path).glob("*"):
+        print("Training " + str(filepath))
         name = filepath.parent.name
         image = face_recognition.load_image_file(filepath)
 

@@ -2,23 +2,11 @@ const express = require('express');
 const { exec } = require('child_process');
 const multer = require('multer');
 const path = require('path');
-const { ftruncate } = require('fs');
+const fs = require('fs');
 
 const app = express();
 const port = 3000;
-
-// Set up multer for image upload
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        // Change '/' to desired subdirectory
-        cb(null, path.join(__dirname, '/'));
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname);
-    }
-});
-
-const upload = multer({ storage: storage });
+const upload = multer(); // Use multer's default in-memory storage
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -32,11 +20,38 @@ app.get('/', (req, res) => {
 
 app.post('/image', upload.single('image'), (req, res) => {
     console.log(req.file); // Logs the details of the uploaded file
-    res.send('Image received!');
+
+    // Temporary local path of the uploaded file
+    const localFilePath = req.file.path;
+
+    // Remote path where the file should be stored
+    const remoteFilePath = '/home/unitree/Unitree/sdk/UnitreecameraSDK-main/face_recognizer/new_appointment_faces/' + req.file.originalname;
+    const command = `sshpass -p '123' scp ${localFilePath} unitree@192.168.123.13:${remoteFilePath}`;
+
+    // Run the scp command
+    exec(command, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error: ${error}`);
+            return res.send(`Error: ${error}`);
+        }
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
+
+        // Delete the local file after successful transfer
+        fs.unlink(localFilePath, (err) => {
+            if (err) {
+                console.error(`Error deleting local file: ${err}`);
+            } else {
+                console.log(`Local file deleted: ${localFilePath}`);
+            }
+        });
+    });
+
+    res.send('Image received and transferred!');
 });
 
 app.get('/start_search', (req, res) => {
-    exec('sshpass -p "123" ssh unitree@192.168.123.13 "bash ~/Desktop/start_search.sh"', (error, stdout, stderr) => {
+    exec('sshpass -p "123" ssh unitree@192.168.123.13 "sh /home/unitree/Desktop/start_search.sh"', (error, stdout, stderr) => {
         if (error) {
             console.error(`Error: ${error}`);
             return res.send(`Error: ${error}`);
