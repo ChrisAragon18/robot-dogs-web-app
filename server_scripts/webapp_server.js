@@ -6,7 +6,10 @@ const fs = require('fs');
 
 const app = express();
 const port = 3000;
-const upload = multer(); // Use multer's default in-memory storage
+const upload = multer({ dest: 'uploads/' }); // Use multer's disk storage with a temporary directory
+
+// Add a variable to store the results
+let results = null;
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -25,14 +28,14 @@ app.post('/image', upload.single('image'), (req, res) => {
     const localFilePath = req.file.path;
 
     // Remote path where the file should be stored
-    const remoteFilePath = '/home/unitree/Unitree/sdk/UnitreecameraSDK-main/face_recognizer/new_appointment_faces/' + req.file.originalname;
+    const remoteFilePath = '/home/unitree/Unitree/sdk/UnitreecameraSDK-main/face_recognizer/inputted_image/' + req.file.originalname;
     const command = `sshpass -p '123' scp ${localFilePath} unitree@192.168.123.13:${remoteFilePath}`;
 
     // Run the scp command
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error: ${error}`);
-            return res.send(`Error: ${error}`);
+            return res.status(500).send(`Error: ${error}`);
         }
         console.log(`stdout: ${stdout}`);
         console.error(`stderr: ${stderr}`);
@@ -60,6 +63,17 @@ app.get('/start_search', (req, res) => {
         console.error(`stderr: ${stderr}`);
         res.send(`stdout: ${stdout}\nstderr: ${stderr}`);
     });
+});
+
+// Add a new POST endpoint to receive the results
+app.post('/results', express.json(), (req, res) => {
+    results = req.body;
+    res.send('Results received!');
+});
+
+// Add a new GET endpoint to send the results to the React app
+app.get('/results', (req, res) => {
+    res.json(results);
 });
 
 app.listen(port, () => {
