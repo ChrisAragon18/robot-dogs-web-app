@@ -14,7 +14,7 @@ ssh_user="unitree"
 ssh_password="123"
 
 # OBJECT DETECTION PART--------------------------------------------
-remote_command="cd home/Desktop/objectDetection/content/yolov7 && sh start_recognition.sh &"
+remote_command="cd /home/Desktop/objectDetection/content/yolov7 && sh start_recognition.sh &"
 
 # Use sshpass to execute the SSH command with a password
 sshpass -p "$ssh_password" ssh -X "$ssh_user@$remote_server" "$remote_command"
