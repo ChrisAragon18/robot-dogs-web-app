@@ -8,16 +8,17 @@ function Surveillance() {
             <div className="container flex mx-auto m-10">
                 {/* Camera Feed 1 */}
                 <div className='p-8'>
-                    <p>Robot 1</p>
+                    <p>Daisy</p>
+                    <img src="http://10.12.42.22:3000/video_feed" alt="Video Feed for Daisy" />
                 </div>
 
                 {/* Camera Feed 2 */}
                 <div className='p-8'>
-                    <p>Robot 2</p>
+                    <p>Milo</p>
+                    {/* Add a similar img tag here when the video feed for Milo is available */}
                 </div>
             </div>
         </>
-
     )
 }
 

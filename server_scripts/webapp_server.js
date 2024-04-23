@@ -76,6 +76,26 @@ app.get('/results', (req, res) => {
     res.json(results);
 });
 
+// Add a new GET endpoint to stream the video feed
+app.get('/video_feed', (req, res) => {
+    // Set the headers for the proxy request
+    const headers = {
+        'User-Agent': 'node.js',
+    };
+
+    // Configure the proxy request
+    const options = {
+        url: 'http://192.168.123.13:5000/video_feed',
+        headers: headers
+    };
+
+    // Create a request object
+    const proxy = request(options);
+
+    // Pipe the video stream to the response
+    req.pipe(proxy).pipe(res);
+});
+
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
 });
