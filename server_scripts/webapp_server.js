@@ -3,13 +3,23 @@ const { exec } = require('child_process');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const WebSocket = require('ws');
 
 const app = express();
 const port = 3000;
 const upload = multer({ dest: 'uploads/' }); // Use multer's disk storage with a temporary directory
 
-// Add a variable to store the results
-let results = null;
+// Create a WebSocket server
+const wss = new WebSocket.Server({ noServer: true });
+
+let ws = null;
+
+wss.on('connection', (websocket) => {
+    ws = websocket;
+    ws.on('message', (message) => {
+        ws.send(message);
+    });
+});
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

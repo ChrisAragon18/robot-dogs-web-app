@@ -3,7 +3,7 @@ import cv2
 import subprocess
 
 # Start the camera capture process in the background
-subprocess.Popen("cd /home/unitree/Unitree/sdk/UnitreecameraSDK-main && sh start_capture.sh &", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#subprocess.Popen("cd /home/unitree/Unitree/sdk/UnitreecameraSDK-main && sudo sh start_capture.sh &", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 app = Flask(__name__)
 
